@@ -10,10 +10,17 @@ public class Tile : MonoBehaviour
 
     public int Flag { get; private set; }
 
-    [SerializeField]
-    private Image image;
+    public bool IsEmpty => Flag == 0;
 
-    public void SetValue(int x, int y, int flag)
+    [SerializeField] private Image image;
+    [SerializeField] private RectTransform rt_tile;
+
+    public void ChangeSize(int width, int height)
+    {
+        rt_tile.sizeDelta = new Vector2(width, height);
+    }
+
+    public void SetFlag(int x, int y, int flag)
     {
         X = x;
         Y = y;
