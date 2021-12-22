@@ -5,22 +5,17 @@ using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
 {
-    public int X { get; private set; }
-    public int Y { get; private set; }
+    public int X { get; private set; } // - коорд по Х
+    public int Y { get; private set; } // - коорд по Y
 
-    public int Flag { get; private set; }
+    public int Flag { get; private set; } // - флаг, показывающий какая это фигура
 
-    public bool IsEmpty => Flag == 0;
+    public bool IsEmpty => Flag == 0; // - флаг
 
     [SerializeField] private Image image;
     [SerializeField] private RectTransform rt_tile;
 
-    public void ChangeSize(int width, int height)
-    {
-        rt_tile.sizeDelta = new Vector2(width, height);
-    }
-
-    public void SetFlag(int x, int y, int flag)
+    public void SetFlag(int x, int y, int flag) // - установка флага
     {
         X = x;
         Y = y;
@@ -29,7 +24,7 @@ public class Tile : MonoBehaviour
         UpdateTile();
     }
 
-    public void UpdateTile()
+    public void UpdateTile() // - изменение цвета
     {
         image.color = ColorManager.Instance.TileColors[Flag];
     }

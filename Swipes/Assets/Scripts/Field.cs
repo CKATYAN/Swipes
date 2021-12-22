@@ -8,9 +8,9 @@ public class Field : MonoBehaviour
     private int amountTile_Y;
 
     [Header("Field Properties")]
-    public float TileSize;
-    public float Spacing;
-    public int InitTilesCount;
+    public float TileSize; // - размер клетки
+    public float Spacing; // - расстояние между клетками
+    public int InitTilesCount; // - начальное количество клеток (должно задаватся через файл)
 
     [Space(10)]
     [SerializeField] private Tile tilePref;
@@ -24,7 +24,7 @@ public class Field : MonoBehaviour
         GenerateFiled();
     }
 
-    private void CreateFiled()
+    private void CreateFiled() // создаем поле
     {
         rt_tile.sizeDelta = new Vector2(TileSize, TileSize);
 
