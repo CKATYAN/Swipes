@@ -13,17 +13,17 @@ public class Tile : MonoBehaviour
     [SerializeField]
     private Image image;
 
-    public void SetPosition(int x, int y)
+    public void SetValue(int x, int y, int flag)
     {
         X = x;
         Y = y;
-        Flag = Flag;
+        Flag = flag;
 
         UpdateTile();
     }
 
     public void UpdateTile()
     {
-
+        image.color = ColorManager.Instance.TileColors[Flag];
     }
 }

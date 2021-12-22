@@ -6,7 +6,7 @@ public class ColorManager : MonoBehaviour
 {
     public static ColorManager Instance;
 
-    public Color[] CellColors;
+    public Color[] TileColors;
 
     private void Awake()
     {
