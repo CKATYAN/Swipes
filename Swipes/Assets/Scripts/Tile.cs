@@ -13,8 +13,10 @@ public class Tile : MonoBehaviour
     public bool IsEmpty => Flag == 0; // - флаг
     public bool HasMerged { get; private set; }
 
-    [SerializeField] private Image image;
-    [SerializeField] private RectTransform rt_tile;
+    [SerializeField] 
+    private Image image;
+    [SerializeField] 
+    private RectTransform rt_tile;
 
     public void SetFlag(int x, int y, int flag) // - установка флага
     {
@@ -27,7 +29,7 @@ public class Tile : MonoBehaviour
 
     public void ChangeFlag()
     {
-        Flag = 1;
+        Flag = 3;
         HasMerged = true;
         UpdateTile();
     }
