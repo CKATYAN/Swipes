@@ -203,7 +203,9 @@ public class Field : MonoBehaviour
 
         var tile = emptyTiles[Random.Range(0, emptyTiles.Count)]; // delete later
 
-        tile.SetFlag(tile.X, tile.Y, flag);
+        tile.SetFlag(tile.X, tile.Y, flag, false);
+
+        TileAnimationController.Instance.SmoothAppear(tile);
     }
 
     private void ResetTilesHasMoved()

@@ -18,12 +18,14 @@ public class Tile : MonoBehaviour
     [SerializeField] 
     private RectTransform rt_tile;
 
-    public void SetFlag(int x, int y, int flag) // - установка флага
+    private TileAnimation currentAnimation;
+    public void SetFlag(int x, int y, int flag, bool updateUI = true) // - установка флага
     {
         X = x;
         Y = y;
         Flag = flag;
 
+        if (updateUI)
         UpdateTile();
     }
 
@@ -31,7 +33,6 @@ public class Tile : MonoBehaviour
     {
         Flag = 3;
         HasMerged = true;
-        UpdateTile();
     }
 
     public void ResetHasMerged()
@@ -41,22 +42,33 @@ public class Tile : MonoBehaviour
 
     public void MergeWithTile(Tile otherTile)
     {
+        TileAnimationController.Instance.SmoothTransition(this, otherTile, true);
+        
         otherTile.ChangeFlag();
         SetFlag(X, Y, 0);
-
-        UpdateTile();
     }
 
     public void MoveToTile(Tile target)
     {
-        target.SetFlag(target.X, target.Y, Flag);
-        SetFlag(X, Y, 0);
+        TileAnimationController.Instance.SmoothTransition(this, target, false);
 
-        UpdateTile();
+        target.SetFlag(target.X, target.Y, Flag, false);
+        SetFlag(X, Y, 0);
     }
 
     public void UpdateTile() // - изменение цвета
     {
         image.color = ColorManager.Instance.TileColors[Flag];
+    }
+
+    public void SetAnimation(TileAnimation animation)
+    {
+        currentAnimation = animation;
+    }
+
+    public void CancelAnimation()
+    {
+        if (currentAnimation != null)
+            currentAnimation.Destroy();
     }
 }
