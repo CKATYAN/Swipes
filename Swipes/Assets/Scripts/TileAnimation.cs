@@ -8,7 +8,7 @@ public class TileAnimation : MonoBehaviour
     [SerializeField]
     private Image image;
 
-    private float moveTime = .1f;
+    private float moveTime = .2f;
 
     private Sequence sequence;
     public void Move(Tile from, Tile to, bool isMerging)

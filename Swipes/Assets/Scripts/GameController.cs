@@ -41,6 +41,12 @@ public class GameController : MonoBehaviour
         gameResult.text = "You Win!";
     }
 
+    public void Lose()
+    {
+        GameStarted = false;
+        gameResult.text = "You Lose!";
+    }
+
     public void AddMoves(int moves)
     {
         SetMoves(Moves + moves);

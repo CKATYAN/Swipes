@@ -142,6 +142,11 @@ public class Field : MonoBehaviour
             GameController.Instance.Win();
             return;
         }
+        else if (amount_tileFlag_1 != 0 && amount_tileFlag_1 < InitTilesCount_package)
+        {
+            GameController.Instance.Lose();
+            return;
+        }
     }
 
     private void CreateField() // создаем поле
@@ -182,8 +187,8 @@ public class Field : MonoBehaviour
             GenerateTile(2);
         for (int i = 0; i < InitTilesCount_package; i++)
             GenerateTile(1);
-
-        GenerateTile(3);
+        for (int i = 0; i < InitTilesCount_package; i++)
+            GenerateTile(3);
     }
 
     private void GenerateTile(int flag) // должно принимать координаты
