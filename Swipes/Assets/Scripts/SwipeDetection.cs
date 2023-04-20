@@ -43,6 +43,7 @@ public class SwipeDetection : MonoBehaviour
                     Input.GetTouch(0).phase == TouchPhase.Canceled ||
                     Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
+
                     ResetSwipe();
                 }
             }

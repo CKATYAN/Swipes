@@ -49,6 +49,8 @@ public class Field : MonoBehaviour
             OnInput(Vector2.right);
         if (Input.GetKeyDown(KeyCode.S))
             OnInput(Vector2.down);
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !GameController.GameStarted)
+            GameController.Instance.Reset();
 #endif
     }
 

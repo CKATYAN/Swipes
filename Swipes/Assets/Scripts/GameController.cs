@@ -25,6 +25,11 @@ public class GameController : MonoBehaviour
         StartGame();
     }
 
+    public void Reset()
+    {
+        StartGame();
+    }
+
     public void StartGame()
     {
         gameResult.text = "";
